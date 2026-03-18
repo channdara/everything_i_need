@@ -1,3 +1,16 @@
+# Add Dependency
+
+Since the plugin is not available on [pub.dev](https://pub.dev/) yet, you have to add dependency directly from GitHub.
+Note that the `ref` can be **branch name**, **commit hash** or **tag**.
+
+```yaml
+dependencies:
+  everything_i_need:
+    git:
+      url: https://github.com/channdara/everything_i_need.git
+      ref: main
+```
+
 # Initialize
 
 Wrap your app initial point with `EinWrapperWidget` to ensure some functionality work accordingly. Also

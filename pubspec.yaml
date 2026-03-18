@@ -1,7 +1,7 @@
 name: everything_i_need
 description: "Everything I need for my projects"
 version: 1.0.0
-homepage:
+homepage: https://github.com/channdara
 
 environment:
   sdk: ^3.11.1
