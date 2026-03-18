@@ -46,8 +46,6 @@ We have use multiple dependencies inside this core plugin and also expose those 
 dependencies:
   collection: ^1.19.1
   dio: ^5.9.2
-  flutter:
-    sdk: flutter
   flutter_bloc: ^9.1.1
   flutter_localization: ^0.3.3
   intl: ^0.20.2
