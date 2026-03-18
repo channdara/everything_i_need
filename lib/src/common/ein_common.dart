@@ -5,6 +5,6 @@ void dismissKeyboard() => FocusManager.instance.primaryFocus?.unfocus();
 
 void logDebug(List<dynamic> content) {
   if (kDebugMode) {
-    print('LogDebug: ${content.join(' | ')}');
+    print('👉 LogDebug: ${content.join(' | ')}');
   }
 }

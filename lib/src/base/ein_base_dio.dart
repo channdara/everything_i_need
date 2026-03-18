@@ -24,7 +24,11 @@ abstract class EinBaseDio {
       _dio?.interceptors.addAll(interceptors);
       if (enableLoggingDebug) {
         _dio?.interceptors.add(
-          PrettyDioLogger(requestHeader: true, requestBody: true),
+          PrettyDioLogger(
+            requestHeader: true,
+            requestBody: true,
+            responseHeader: true,
+          ),
         );
       }
     }
