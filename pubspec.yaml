@@ -1,0 +1,38 @@
+name: everything_i_need
+description: "Everything I need for my projects"
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: ^3.11.1
+  flutter: '>=3.3.0'
+
+dependencies:
+  collection: ^1.19.1
+  dio: ^5.9.2
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
+  flutter_localization: ^0.3.3
+  intl: ^0.20.2
+  pretty_dio_logger: ^1.4.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.mastertipsy.everything_i_need
+        pluginClass: EverythingINeedPlugin
+      ios:
+        pluginClass: EverythingINeedPlugin
+      linux:
+        pluginClass: EverythingINeedPlugin
+      macos:
+        pluginClass: EverythingINeedPlugin
+      windows:
+        pluginClass: EverythingINeedPluginCApi
