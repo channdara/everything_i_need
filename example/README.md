@@ -7,8 +7,8 @@
 <project version="4">
     <component name="ProjectModuleManager">
         <modules>
-            <module fileurl="file://$PROJECT_DIR$/.idea/everything_i_need.iml"
-                    filepath="$PROJECT_DIR$/.idea/everything_i_need.iml"/>
+            <module fileurl="file://$PROJECT_DIR$/everything_i_need.iml"
+                    filepath="$PROJECT_DIR$/everything_i_need.iml"/>
         </modules>
     </component>
 </project>

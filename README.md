@@ -42,12 +42,14 @@ class _ApplicationState extends State<Application> {
 
 We have use multiple dependencies inside this core plugin and also expose those plugin to user too.
 
-```yaml
-dependencies:
-  collection: ^1.19.1
-  dio: ^5.9.2
-  flutter_bloc: ^9.1.1
-  flutter_localization: ^0.3.3
-  intl: ^0.20.2
-  pretty_dio_logger: ^1.4.0
-```
+- auto_size_text
+- cached_network_image
+- carousel_slider
+- collection
+- connectivity_plus
+- dio
+- flutter_bloc
+- flutter_localization
+- flutter_secure_storage
+- intl
+- pretty_dio_logger

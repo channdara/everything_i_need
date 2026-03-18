@@ -9,6 +9,14 @@ class EinPaginatedScrollController extends ScrollController {
 
   int get itemCount => _list.length;
 
+  @override
+  void dispose() {
+    _list.clear();
+    _reserveHeight = null;
+    _hasNext = null;
+    super.dispose();
+  }
+
   EinPaginatedModel getItemAt(int index) => _list[index];
 
   void append<T>(List<T> data, {bool? hasNext, bool? clear}) {

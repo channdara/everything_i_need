@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../extension/ein_context_extension.dart';
-import '../widget/ein_error_dialog_widget.dart';
-import '../widget/ein_loading_dialog_widget.dart';
+import '../widget/ein_error_widget.dart';
+import '../widget/ein_loading_widget.dart';
 import 'ein_base_bloc.dart';
 import 'ein_base_bloc_state.dart';
 import 'ein_state_base.dart';
@@ -22,15 +22,13 @@ abstract class EinStateBaseBloc<T extends StatefulWidget, B extends EinBaseBloc>
     _bloc?.stream.listen((state) {
       setupObserver(state);
       switch (state) {
-        case final EinBlocStateLoadingDialog dialog:
+        case EinBlocStateLoadingDialog():
           if (mounted) {
             showDialog<void>(
               context: context,
-              barrierDismissible: dialog.barrierDismissible,
+              barrierDismissible: false,
               builder: (context) {
-                return EinLoadingDialogWidget(
-                  barrierDismissible: dialog.barrierDismissible,
-                );
+                return const EinLoadingWidget();
               },
             );
             _loadingDialogShown = true;
@@ -44,12 +42,8 @@ abstract class EinStateBaseBloc<T extends StatefulWidget, B extends EinBaseBloc>
           if (mounted) {
             showDialog<void>(
               context: context,
-              barrierDismissible: error.barrierDismissible,
               builder: (context) {
-                return EinErrorDialogWidget(
-                  param: error.param,
-                  barrierDismissible: error.barrierDismissible,
-                );
+                return Dialog(child: EinErrorWidget(param: error.param));
               },
             ).then((_) => onErrorDialogDismissed());
           }

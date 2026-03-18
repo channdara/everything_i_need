@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../model/ein_empty_param.dart';
 import '../model/ein_error_param.dart';
 import 'ein_base_bloc_state.dart';
 
@@ -39,8 +40,8 @@ abstract class EinBaseBloc extends BlocBase<EinBaseBlocState> {
         : safeEmit(EinBlocStateError(param));
   }
 
-  void showEmpty() {
-    safeEmit(EinBlocStateEmpty());
+  void showEmpty(EinEmptyParam param) {
+    safeEmit(EinBlocStateEmpty(param));
   }
 
   Future<void> execute({

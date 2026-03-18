@@ -8,12 +8,17 @@ environment:
   flutter: '>=3.3.0'
 
 dependencies:
+  auto_size_text: ^3.0.0
+  cached_network_image: ^3.4.1
+  carousel_slider: ^5.1.2
   collection: ^1.19.1
+  connectivity_plus: ^7.0.0
   dio: ^5.9.2
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
   flutter_localization: ^0.3.3
+  flutter_secure_storage: ^10.0.0
   intl: ^0.20.2
   pretty_dio_logger: ^1.4.0
 
