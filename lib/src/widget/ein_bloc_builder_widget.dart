@@ -40,13 +40,13 @@ class EinBlocBuilderCustom<
       },
       builder: (context, state) {
         if (state is LOADING) {
-          return const EinLoadingWidget();
+          return const Center(child: EinLoadingWidget());
         }
         if (state is ERROR) {
-          return EinErrorWidget(param: state.param);
+          return EinErrorWidget(param: errorParam ?? state.param);
         }
         if (state is EinBlocStateEmpty) {
-          return EinEmptyWidget(param: state.param);
+          return EinEmptyWidget(param: emptyParam ?? state.param);
         }
         if (state is SUCCESS) {
           return builder(context, state);

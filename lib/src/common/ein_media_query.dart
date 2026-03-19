@@ -20,6 +20,14 @@ class EinMediaQuery {
     _initialized = true;
   }
 
+  static void dispose() {
+    _height = 0.0;
+    _width = 0.0;
+    _top = 0.0;
+    _bottom = 0.0;
+    _initialized = false;
+  }
+
   static double screenHeight([double percentage = 1.0]) => _height * percentage;
 
   static double screenWidth([double percentage = 1.0]) => _width * percentage;

@@ -13,16 +13,17 @@ dependencies:
 
 # Initialize
 
-Wrap your app initial point with `EinWrapperWidget` to ensure some functionality work accordingly. Also
-`EinWrapperWidget` provide you some possibility to override some default widget or behavior too. The application initial
-point always the one that appears at the `runApp()` function, see example below.
+Wrap your app initial screen (the `home` of `MaterialApp`) with `EinWrapperWidget` to ensure some functionality work
+accordingly. Also `EinWrapperWidget` provide you some possibility to override some default widget and behavior too.
 
 ```dart
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const Application());
 }
+```
 
+```dart
 class Application extends StatefulWidget {
   const Application({super.key});
 
@@ -32,8 +33,22 @@ class Application extends StatefulWidget {
 
 class _ApplicationState extends State<Application> {
   @override
+  void dispose() {
+    disposeEin();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return EinWrapperWidget(context: context, child: const MaterialApp());
+    return MaterialApp(
+      home: EinWrapperWidget(
+        context: context,
+        loadingWidget: const CircularProgressIndicator.adaptive(),
+        errorWidget: (param) => const SizedBox(),
+        emptyWidget: (param) => const SizedBox(),
+        child: const SplashScreen(),
+      ),
+    );
   }
 }
 ```

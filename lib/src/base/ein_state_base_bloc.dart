@@ -28,7 +28,10 @@ abstract class EinStateBaseBloc<T extends StatefulWidget, B extends EinBaseBloc>
               context: context,
               barrierDismissible: false,
               builder: (context) {
-                return const EinLoadingWidget();
+                return const PopScope(
+                  canPop: false,
+                  child: Center(child: EinLoadingWidget()),
+                );
               },
             );
             _loadingDialogShown = true;

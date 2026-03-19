@@ -7,13 +7,6 @@ class EinLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      child: Center(
-        child:
-            EinWrapperWidget.of(context)?.loadingWidget ??
-            const CircularProgressIndicator.adaptive(),
-      ),
-    );
+    return EinWrapperWidget.of(context)?.loadingWidget ?? const SizedBox();
   }
 }
