@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 abstract class EinBaseDio {
@@ -7,7 +8,11 @@ abstract class EinBaseDio {
   abstract String baseUrl;
 
   List<Interceptor> interceptors = [];
-  bool enableLoggingDebug = true;
+  bool enableLoggingDebug = kDebugMode;
+  bool logRequestHeader = true;
+  bool logRequestBody = false;
+  bool logResponseHeader = true;
+  bool logResponseBody = false;
   Duration timeout = const Duration(seconds: 10);
 
   Dio instance() {
@@ -25,9 +30,10 @@ abstract class EinBaseDio {
       if (enableLoggingDebug) {
         _dio?.interceptors.add(
           PrettyDioLogger(
-            requestHeader: true,
-            requestBody: true,
-            responseHeader: true,
+            requestHeader: logRequestHeader,
+            requestBody: logRequestBody,
+            responseHeader: logResponseHeader,
+            responseBody: logResponseBody,
           ),
         );
       }

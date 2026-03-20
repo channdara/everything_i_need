@@ -26,7 +26,11 @@ class EinWrapperWidget extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    final condition = oldWidget.child != child;
+    final old = oldWidget as EinWrapperWidget;
+    final condition = old.child != child ||
+        old.loadingWidget != loadingWidget ||
+        old.errorWidget != errorWidget ||
+        old.emptyWidget != emptyWidget;
     logDebug(['EverythingINeed.updateShouldNotify', condition]);
     return condition;
   }

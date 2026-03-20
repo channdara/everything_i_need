@@ -11,6 +11,23 @@ class EinErrorWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return EinWrapperWidget.of(context)?.errorWidget?.call(param) ??
-        const SizedBox();
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                param.isUnauthorized ? 'Unauthorized' : 'Something went wrong',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              const SizedBox(height: 8.0),
+              Text(
+                param.message,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ],
+          ),
+        );
   }
 }

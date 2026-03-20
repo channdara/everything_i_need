@@ -7,6 +7,7 @@ class EinLoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return EinWrapperWidget.of(context)?.loadingWidget ?? const SizedBox();
+    return EinWrapperWidget.of(context)?.loadingWidget ??
+        const CircularProgressIndicator.adaptive();
   }
 }

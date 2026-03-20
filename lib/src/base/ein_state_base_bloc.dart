@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../extension/ein_context_extension.dart';
@@ -10,6 +12,7 @@ import 'ein_state_base.dart';
 abstract class EinStateBaseBloc<T extends StatefulWidget, B extends EinBaseBloc>
     extends EinStateBase<T> {
   B? _bloc;
+  StreamSubscription<EinBaseBlocState>? _subscription;
   bool _loadingDialogShown = false;
 
   B get bloc =>
@@ -19,7 +22,7 @@ abstract class EinStateBaseBloc<T extends StatefulWidget, B extends EinBaseBloc>
   void initState() {
     super.initState();
     _bloc = provideBloc();
-    _bloc?.stream.listen((state) {
+    _subscription = _bloc?.stream.listen((state) {
       setupObserver(state);
       switch (state) {
         case EinBlocStateLoadingDialog():
@@ -56,6 +59,8 @@ abstract class EinStateBaseBloc<T extends StatefulWidget, B extends EinBaseBloc>
 
   @override
   void dispose() {
+    _subscription?.cancel();
+    _subscription = null;
     _bloc?.dispose();
     _bloc?.close();
     super.dispose();
