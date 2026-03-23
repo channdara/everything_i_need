@@ -15,7 +15,7 @@ abstract class EinBaseDio {
   bool logResponseBody = false;
   Duration timeout = const Duration(seconds: 10);
 
-  Dio instance() {
+  Dio dioInstance() {
     if (_dio == null) {
       final url = baseUrl.endsWith('/') ? baseUrl : '$baseUrl/';
       _dio = Dio(

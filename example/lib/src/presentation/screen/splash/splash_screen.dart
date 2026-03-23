@@ -1,6 +1,8 @@
 import 'package:everything_i_need/everything_i_need.dart';
 import 'package:flutter/material.dart';
 
+import '../main/main_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -10,19 +12,15 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 1), () {
+      if (mounted) context.pushReplaceAll(const MainScreen());
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Splash Screen')),
-      body: Center(
-        child: Text(
-          [
-            EinMediaQuery.screenWidth(),
-            EinMediaQuery.screenHeight(),
-            EinMediaQuery.paddingTop(),
-            EinMediaQuery.paddingBottom(),
-          ].join('\n'),
-        ),
-      ),
-    );
+    return Scaffold(appBar: AppBar());
   }
 }
