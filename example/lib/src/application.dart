@@ -21,6 +21,18 @@ class _ApplicationState extends State<Application> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: EinWrapperWidget(context: context, child: const SplashScreen()),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.light,
+        cardTheme: const CardThemeData(
+          margin: EdgeInsets.zero,
+          clipBehavior: Clip.antiAlias,
+        ),
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          year2023: false,
+        ),
+      ),
     );
   }
 }

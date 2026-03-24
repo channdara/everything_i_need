@@ -7,12 +7,11 @@ import 'main_bloc_state.dart';
 class MainBloc extends EinBaseBloc {
   final PostRepository _postRepository = PostRepositoryImpl.instance;
 
-  void fetchPosts() {
-    execute(
+  Future<void> fetchPosts([bool refresh = true]) async {
+    await execute(
       requesting: () async {
-        startLoading();
+        if (!refresh) startLoading();
         final response = await _postRepository.posts();
-        await Future<dynamic>.delayed(const Duration(seconds: 1));
         stopLoading();
         safeEmit(MainStateGotPosts(response));
       },
