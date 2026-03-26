@@ -12,7 +12,7 @@ abstract class EinBaseDio {
   bool logRequestHeader = true;
   bool logRequestBody = false;
   bool logResponseHeader = true;
-  bool logResponseBody = false;
+  bool logResponseBody = true;
   Duration timeout = const Duration(seconds: 10);
 
   Dio dioInstance() {

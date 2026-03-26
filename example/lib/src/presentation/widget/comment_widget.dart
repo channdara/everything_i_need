@@ -10,27 +10,34 @@ class CommentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
+    return Card(
+      elevation: 0.0,
+      shape: const RoundedRectangleBorder(),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CircleAvatar(child: Text('${comment.id}')),
-            const SizedBox(width: 8.0),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(comment.name ?? '', style: EinTextStyle.s14Bold),
-                  Text(comment.email ?? '', style: EinTextStyle.s12),
-                ],
-              ),
+            Row(
+              children: [
+                CircleAvatar(child: Text('${comment.id}')),
+                const SizedBox(width: 8.0),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(comment.name ?? '', style: EinTextStyle.s14Bold),
+                      Text(comment.email ?? '', style: EinTextStyle.s12),
+                    ],
+                  ),
+                ),
+              ],
             ),
+            const SizedBox(height: 16.0),
+            Text(comment.body ?? '', style: EinTextStyle.s14),
           ],
         ),
-        const SizedBox(height: 16.0),
-        Text(comment.body ?? '', style: EinTextStyle.s14),
-      ],
+      ),
     );
   }
 }

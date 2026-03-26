@@ -41,12 +41,14 @@ class _MainScreenState extends EinStateBaseBloc<MainScreen, MainBloc> {
               },
               itemBuilder: (context, index) {
                 final post = state.posts[index];
+                final user = bloc.getUser(post.userId);
                 return Card(
                   child: PostWidget(
                     onTap: () {
-                      context.push(CommentScreen(post: post));
+                      context.push(CommentScreen(post: post, user: user));
                     },
                     post: post,
+                    user: user,
                   ),
                 );
               },

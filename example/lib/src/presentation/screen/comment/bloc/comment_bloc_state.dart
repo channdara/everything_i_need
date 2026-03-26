@@ -1,9 +1,7 @@
 import 'package:everything_i_need/everything_i_need.dart';
 
-import '../../../../data/response/comment.dart';
-
 class CommentStateGotComments extends EinBaseBlocState {
-  CommentStateGotComments(this.comments);
+  CommentStateGotComments(this.items);
 
-  final List<Comment> comments;
+  final List<dynamic> items;
 }
