@@ -1,7 +1,7 @@
 import 'package:everything_i_need/everything_i_need.dart';
 import 'package:flutter/material.dart';
 
-import '../main/main_screen.dart';
+import '../post/post_screen.dart';
 import 'bloc/splash_bloc.dart';
 import 'bloc/splash_bloc_state.dart';
 
@@ -26,7 +26,7 @@ class _SplashScreenState extends EinStateBaseBloc<SplashScreen, SplashBloc> {
   void setupObserver(EinBaseBlocState state) {
     super.setupObserver(state);
     if (state is SplashStateGotUsers && mounted) {
-      context.pushReplaceAll(const MainScreen());
+      context.pushReplaceAll(const PostScreen());
     }
   }
 

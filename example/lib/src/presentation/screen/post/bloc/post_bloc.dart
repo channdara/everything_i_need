@@ -5,9 +5,9 @@ import '../../../../data/repository/user_repository_impl.dart';
 import '../../../../data/response/user.dart';
 import '../../../../domain/repository/post_repository.dart';
 import '../../../../domain/repository/user_repository.dart';
-import 'main_bloc_state.dart';
+import 'post_bloc_state.dart';
 
-class MainBloc extends EinBaseBloc {
+class PostBloc extends EinBaseBloc {
   final PostRepository _postRepository = PostRepositoryImpl.instance;
   final UserRepository _userRepository = UserRepositoryImpl.instance;
 
@@ -17,7 +17,7 @@ class MainBloc extends EinBaseBloc {
         if (!refresh) startLoading();
         final response = await _postRepository.posts();
         stopLoading();
-        safeEmit(MainStateGotPosts(response));
+        safeEmit(PostStateGotPosts(response));
       },
     );
   }

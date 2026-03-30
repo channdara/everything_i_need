@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 
 import '../../widget/post_widget.dart';
 import '../comment/comment_screen.dart';
-import 'bloc/main_bloc.dart';
-import 'bloc/main_bloc_state.dart';
+import 'bloc/post_bloc.dart';
+import 'bloc/post_bloc_state.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class PostScreen extends StatefulWidget {
+  const PostScreen({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<PostScreen> createState() => _PostScreenState();
 }
 
-class _MainScreenState extends EinStateBaseBloc<MainScreen, MainBloc> {
+class _PostScreenState extends EinStateBaseBloc<PostScreen, PostBloc> {
   @override
-  MainBloc provideBloc() => MainBloc();
+  PostBloc provideBloc() => PostBloc();
 
   @override
   void initStatePostFrameCallback(Duration duration) {
@@ -29,7 +29,7 @@ class _MainScreenState extends EinStateBaseBloc<MainScreen, MainBloc> {
       appBar: AppBar(title: const Text('Posts')),
       body: RefreshIndicator.adaptive(
         onRefresh: bloc.fetchPosts,
-        child: EinBlocBuilderWidget<MainStateGotPosts>(
+        child: EinBlocBuilderWidget<PostStateGotPosts>(
           bloc: bloc,
           builder: (context, state) {
             return ListView.separated(
