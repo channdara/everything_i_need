@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 
-import '../common/ein_common.dart';
 import '../common/ein_media_query.dart';
 import '../model/ein_empty_param.dart';
 import '../model/ein_error_param.dart';
@@ -26,12 +25,12 @@ class EinWrapperWidget extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    final old = oldWidget as EinWrapperWidget;
-    final condition = old.child != child ||
-        old.loadingWidget != loadingWidget ||
-        old.errorWidget != errorWidget ||
-        old.emptyWidget != emptyWidget;
-    logDebug(['EverythingINeed.updateShouldNotify', condition]);
+    final condition =
+        oldWidget is EinWrapperWidget &&
+        (oldWidget.child != child ||
+            oldWidget.loadingWidget != loadingWidget ||
+            oldWidget.errorWidget != errorWidget ||
+            oldWidget.emptyWidget != emptyWidget);
     return condition;
   }
 }
