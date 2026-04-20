@@ -1,0 +1,5 @@
+scripts:
+  upgrade: 'flutter pub add auto_size_text cached_network_image carousel_slider collection connectivity_plus dio flutter_bloc flutter_localization flutter_secure_storage intl pretty_dio_logger'
+  upgrade_dev: 'flutter pub add --dev flutter_lints'
+  upgrade_all: 'rps upgrade && rps upgrade_dev'
+  quick_push: 'git add . && git commit -m "quick push" && git push'
